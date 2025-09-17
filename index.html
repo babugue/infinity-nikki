@@ -1,122 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Nikki Brasil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.min.css">
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Infinity Nikki Brasil</title>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href=css/style.min.css>
 </head>
 <body>
-    <div class="container">
-        <!-- Interruptor de Tema -->
-        <div class="theme-switcher">
-            <label for="theme-toggle" class="theme-toggle-label">
-                <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
-                <span class="slider">
-                    <span class="icon sun-icon">☀️</span>
-                    <span class="icon moon-icon">🌙</span>
-                </span>
-            </label>
-        </div>
-
-        <!-- Seletor de Idioma -->
-        <div class="language-selector">
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="pt">Português</option>
-                <option value="zh-CN">简体中文</option>
-                <option value="zh-TW">繁體中文</option>
-                <option value="ja">日本語</option>
-                <option value="ko">한국어</option>
-                <option value="de">Deutsch</option>
-                <option value="fr">Français</option>
-                <option value="th">ไทย</option>
-                <option value="es">Español</option>
-                <option value="it">Italiano</option>
-                <option value="id">Bahasa Indonesia</option>
-            </select>
-        </div>
-
-        <!-- Header -->
-        <div class="header">
-            <h1 class="page-title" id="page-title">Home Abilities - Animal Inviting</h1>
-            <img src="images/blue_logo.png" alt="Infinity Nikki Logo" id="page-logo" class="page-logo">
-            <p class="page-subtitle" id="page-subtitle">Infinity Nikki - Update 1.9</p>
-        </div>
-
-        <!-- Filtros -->
-        <div class="filter-container">
-            <!-- CABEÇALHO COM A PESQUISA -->
-            <div class="filter-header">
-                <span id="search-icon" title="Pesquisar por nome">🔍</span>
-                <div id="search-wrapper">
-                    <span id="filter-title">Filtrar Animais</span>
-                    <input type="text" id="search-input" class="search-input hidden" placeholder="">
-                </div>
-            </div>
-            
-            <!-- GRID COM AS OPÇÕES DE FILTRO -->
-            <div class="filter-grid">
-                <div class="filter-group">
-                    <label id="filter-colors-label">Cores:</label>
-                    <div class="filter-options">
-                        <label><input type="checkbox" value="white" class="color-filter"> <span id="color-white">Branco</span></label>
-                        <label><input type="checkbox" value="brown" class="color-filter"> <span id="color-brown">Marrom</span></label>
-                        <label><input type="checkbox" value="blue" class="color-filter"> <span id="color-blue">Azul</span></label>
-                    </div>
-                </div>
-                
-                <div class="filter-group">
-                    <label id="filter-size-label">Tamanho:</label>
-                    <div class="filter-options">
-                        <label><input type="checkbox" value="small" class="size-filter"> <span id="size-small">Pequeno</span></label>
-                        <label><input type="checkbox" value="large" class="size-filter"> <span id="size-large">Grande</span></label>
-                    </div>
-                </div>
-                
-                <div class="filter-group">
-                    <label id="filter-drop-label">Drop por Hora:</label>
-                    <select id="drop-filter" class="drop-filter" style="width: 100%; padding: 8px; border-radius: 10px; border: 1px solid var(--border-color);">
-                        <option value="" id="drop-all">Todos</option>
-                        <option value="Brilliant Pearl">Brilliant Pearl</option>
-                        <option value="Leaf Stone">Leaf Stone</option>
-                        <option value="Radiant Gemstone">Radiant Gemstone</option>
-                        <option value="Featherlight Stone">Featherlight Stone</option>
-                        <option value="Flying Pearl">Flying Pearl</option>
-                    </select>
-                </div>
-            </div>
-            
-            <!-- BOTÕES DE AÇÃO -->
-            <div class="filter-buttons">
-                <button class="btn btn-primary" id="apply-filters-btn">Aplicar Filtros</button>
-                <button class="btn btn-secondary" id="reset-filters-btn">Limpar Filtros</button>
-            </div>
-        </div>
-        
-        <!-- Grid de Animais -->
-        <div class="animals-grid" id="animals-grid">
-            <!-- Os cards dos animais serão inseridos aqui via JavaScript -->
-        </div>
-    </div>
-
-    <!-- Tooltip -->
-    <div class="tooltip" id="tooltip"></div>
-
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2025 Gregory R. S. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/translations.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/main.min.js"></script>
+<div class=container>
+<div class=theme-switcher>
+<label for=theme-toggle class=theme-toggle-label>
+<input type=checkbox id=theme-toggle class=theme-toggle-input>
+<span class=slider>
+<span class="icon sun-icon">☀️</span>
+<span class="icon moon-icon">🌙</span>
+</span>
+</label>
+</div>
+<div class=language-selector>
+<select id=language-select>
+<option value=en>English</option>
+<option value=pt>Português</option>
+<option value=zh-CN>简体中文</option>
+<option value=zh-TW>繁體中文</option>
+<option value=ja>日本語</option>
+<option value=ko>한국어</option>
+<option value=de>Deutsch</option>
+<option value=fr>Français</option>
+<option value=th>ไทย</option>
+<option value=es>Español</option>
+<option value=it>Italiano</option>
+<option value=id>Bahasa Indonesia</option>
+</select>
+</div>
+<div class=header>
+<h1 class=page-title id=page-title>Home Abilities - Animal Inviting</h1>
+<img src=images/blue_logo.png alt="Infinity Nikki Logo" id=page-logo class=page-logo>
+<p class=page-subtitle id=page-subtitle>Infinity Nikki - Update 1.9</p>
+</div>
+<div class=filter-container>
+<div class=filter-header>
+<span id=search-icon title="Pesquisar por nome">🔍</span>
+<div id=search-wrapper>
+<span id=filter-title>Filtrar Animais</span>
+<input id=search-input class="search-input hidden" placeholder="">
+</div>
+</div>
+<div class=filter-grid>
+<div class=filter-group>
+<label id=filter-colors-label>Cores:</label>
+<div class=filter-options>
+<label><input type=checkbox value=white class=color-filter> <span id=color-white>Branco</span></label>
+<label><input type=checkbox value=brown class=color-filter> <span id=color-brown>Marrom</span></label>
+<label><input type=checkbox value=blue class=color-filter> <span id=color-blue>Azul</span></label>
+</div>
+</div>
+<div class=filter-group>
+<label id=filter-size-label>Tamanho:</label>
+<div class=filter-options>
+<label><input type=checkbox value=small class=size-filter> <span id=size-small>Pequeno</span></label>
+<label><input type=checkbox value=large class=size-filter> <span id=size-large>Grande</span></label>
+</div>
+</div>
+<div class=filter-group>
+<label id=filter-drop-label>Drop por Hora:</label>
+<select id=drop-filter class=drop-filter style="width:100%;padding:8px;border-radius:10px;border:1px solid var(--border-color)">
+<option value="" id=drop-all>Todos</option>
+<option value="Brilliant Pearl">Brilliant Pearl</option>
+<option value="Leaf Stone">Leaf Stone</option>
+<option value="Radiant Gemstone">Radiant Gemstone</option>
+<option value="Featherlight Stone">Featherlight Stone</option>
+<option value="Flying Pearl">Flying Pearl</option>
+</select>
+</div>
+</div>
+<div class=filter-buttons>
+<button class="btn btn-primary" id=apply-filters-btn>Aplicar Filtros</button>
+<button class="btn btn-secondary" id=reset-filters-btn>Limpar Filtros</button>
+</div>
+</div>
+<div class=animals-grid id=animals-grid>
+</div>
+</div>
+<div class=tooltip id=tooltip></div>
+<footer>
+<p>&copy; 2025 Gregory R. S. Todos os direitos reservados.</p>
+</footer>
+<script src=js/translations.js></script>
+<script src=js/utils.js></script>
+<script src=js/main.min.js></script>
 </body>
 </html>
-
-

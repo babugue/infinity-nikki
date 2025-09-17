@@ -2,7 +2,7 @@
 const baseTranslations = {
     en: {
         pageTitle: "Home Abilities - Animal Inviting",
-        pageSubtitle: "Update 1.9",
+        pageSubtitle: "Update 1.9 - Music Season",
         filterTitle: "Filter Animals",
         filterColors: "Rarity:",
         filterSize: "Size:",
@@ -55,7 +55,7 @@ const baseTranslations = {
     },
     pt: {
         pageTitle: "Habilidades do Lar - Convite de Animais",
-        pageSubtitle: "Atualização 1.9",
+        pageSubtitle: "Atualização 1.9 - Temporada da Música",
         filterTitle: "Filtrar Animais",
         filterColors: "Raridade:",
         filterSize: "Tamanho:",

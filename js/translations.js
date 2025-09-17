@@ -55,7 +55,7 @@ const baseTranslations = {
     },
     pt: {
         pageTitle: "Habilidades do Lar - Convite de Animais",
-        pageSubtitle: "Atualização 1.9 - Temporada da Música",
+        pageSubtitle: "Atualização 1.9 - Temporada Musical",
         filterTitle: "Filtrar Animais",
         filterColors: "Raridade:",
         filterSize: "Tamanho:",
@@ -139,3 +139,4 @@ async function getAllTranslations() {
     await Promise.all(promises);
     return translations;
 }
+

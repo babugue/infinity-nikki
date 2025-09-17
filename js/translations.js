@@ -1,8 +1,8 @@
 // Sistema de Traduções - Apenas inglês e português no código principal
 const baseTranslations = {
     en: {
-        pageTitle: "Home Abilities - Animal Inviting",
-        pageSubtitle: "Update 1.9 - Music Season",
+        pageTitle: "Home Abilities",
+        pageSubtitle: "Animal Inviting",
         filterTitle: "Filter Animals",
         filterColors: "Rarity:",
         filterSize: "Size:",
@@ -54,8 +54,8 @@ const baseTranslations = {
         }
     },
     pt: {
-        pageTitle: "Habilidades do Lar - Convite de Animais",
-        pageSubtitle: "Atualização 1.9 - Temporada Musical",
+        pageTitle: "Habilidades do Lar",
+        pageSubtitle: "Convite de Animais",
         filterTitle: "Filtrar Animais",
         filterColors: "Raridade:",
         filterSize: "Tamanho:",
@@ -139,4 +139,5 @@ async function getAllTranslations() {
     await Promise.all(promises);
     return translations;
 }
+
 

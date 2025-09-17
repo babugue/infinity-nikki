@@ -80,14 +80,39 @@ function applyFilters() {
     const selectedDrop = document.getElementById('drop-filter').value;
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
+    // Pega o idioma atual e as traduções
+    const currentLang = window.currentLanguage;
+    const t = window.translations[currentLang];
+
     const filteredAnimals = window.animals.filter(animal => {
+        // --- Filtros de checkbox e dropdown ---
         const matchesColor = selectedColors.length === 0 || selectedColors.includes(animal.color);
         const matchesSize = selectedSizes.length === 0 || selectedSizes.includes(animal.size);
         const matchesDrop = !selectedDrop || animal.drop === selectedDrop;
-        const matchesSearch = !searchTerm || 
-                              (animal.name.en.toLowerCase().includes(searchTerm)) ||
-                              (animal.name.pt && animal.name.pt.toLowerCase().includes(searchTerm));
-        return matchesColor && matchesSize && matchesDrop && matchesSearch;
+
+        // --- LÓGICA DE PESQUISA DINÂMICA ---
+        if (searchTerm) {
+            // Pega o nome do animal no idioma ATUAL (ex: 'de', 'fr', 'pt')
+            // Se não existir, usa uma string vazia para evitar erros.
+            const animalNameCurrent = (animal.name[currentLang] || "").toLowerCase();
+
+            // Pega o nome do animal em INGLÊS como fallback universal
+            const animalNameEN = (animal.name.en || "").toLowerCase();
+
+            // Pega o nome traduzido do drop
+            const dropName = (t.dropItems[animal.drop] || animal.drop).toLowerCase();
+
+            // A condição agora verifica se o termo de busca está em QUALQUER um dos nomes relevantes
+            const matchesSearch = animalNameCurrent.includes(searchTerm) ||
+                                  animalNameEN.includes(searchTerm) ||
+                                  dropName.includes(searchTerm);
+            
+            if (!matchesSearch) {
+                return false;
+            }
+        }
+
+        return matchesColor && matchesSize && matchesDrop;
     });
     
     window.renderAnimals(filteredAnimals);

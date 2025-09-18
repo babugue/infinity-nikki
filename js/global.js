@@ -28,12 +28,18 @@ async function initializeSite() {
 
 /**
  * Busca o arquivo nav.html e o insere no topo do <body> da página.
- * Esta versão corrigida funciona tanto localmente quanto no GitHub Pages.
+ * Esta versão foi ajustada para funcionar corretamente no GitHub Pages.
  */
 function injectNavigation() {
-    const basePath = window.location.pathname.includes('/tools/') ? '..' : '.';
+    // O nome do seu repositório no GitHub. Altere se for diferente.
+    const repoName = 'infinity-nikki';
 
-    // Usa o caminho base calculado para buscar o arquivo nav.html
+    // Determina o caminho base correto.
+    // window.location.origin nos dá "https://babugue.github.io"
+    // Adicionamos o nome do repositório para formar a base completa.
+    const basePath = `${window.location.origin}/${repoName}`;
+
+    // Usa o caminho base completo para buscar o nav.html
     return fetch(`${basePath}/nav.html`)
         .then(response => {
             if (!response.ok) {
@@ -46,7 +52,6 @@ function injectNavigation() {
         })
         .catch(error => console.error('Falha ao buscar e injetar a navegação:', error));
 }
-
 
 /**
  * Inicializa todos os controles interativos que estão na barra de navegação.
@@ -94,4 +99,41 @@ function initializeGlobalControls() {
     // --- LÓGICA DO DROPDOWN POR CLIQUE ---
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
-      
+        const trigger = dropdown.querySelector('.nav-tools-link');
+        if (trigger) {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+        }
+    });
+
+    // Event listener global para fechar o dropdown se o usuário clicar fora dele
+    window.addEventListener('click', (event) => {
+        document.querySelectorAll('.dropdown.active').forEach(openDropdown => {
+            if (!openDropdown.contains(event.target)) {
+                openDropdown.classList.remove('active');
+            }
+        });
+    });
+}
+
+/**
+ * Aplica as traduções a todos os elementos da página com o atributo 'data-translate'.
+ * @param {string} lang - O código do idioma a ser aplicado (ex: 'pt', 'en').
+ */
+function applyTranslations(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (t[key]) element.textContent = t[key];
+    });
+
+    const titleKey = document.body.getAttribute('data-translate-title');
+    if (titleKey && t[titleKey]) {
+        document.title = t[titleKey];
+    }
+} // <--- O erro estava acontecendo porque esta chave provavelmente estava faltando.

@@ -1,4 +1,4 @@
-// js/global.js - Versão Completa e Final
+// js/global.js - Versão Completa e Corrigida para GitHub Pages
 
 import { translations } from './translations.js';
 
@@ -28,27 +28,25 @@ async function initializeSite() {
 
 /**
  * Busca o arquivo nav.html e o insere no topo do <body> da página.
- * Retorna uma Promise que é resolvida quando a injeção está completa.
+ * Esta versão corrigida funciona tanto localmente quanto no GitHub Pages.
  */
 function injectNavigation() {
     const basePath = window.location.pathname.includes('/tools/') ? '..' : '.';
-    
+
+    // Usa o caminho base calculado para buscar o arquivo nav.html
     return fetch(`${basePath}/nav.html`)
         .then(response => {
             if (!response.ok) {
-                return fetch('/nav.html');
+                throw new Error(`Arquivo nav.html não encontrado no caminho: ${basePath}/nav.html`);
             }
-            return response;
-        })
-        .then(response => {
-            if (!response.ok) throw new Error('nav.html not found in any path.');
             return response.text();
         })
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
         })
-        .catch(error => console.error('Error fetching navigation:', error));
+        .catch(error => console.error('Falha ao buscar e injetar a navegação:', error));
 }
+
 
 /**
  * Inicializa todos os controles interativos que estão na barra de navegação.
@@ -96,47 +94,4 @@ function initializeGlobalControls() {
     // --- LÓGICA DO DROPDOWN POR CLIQUE ---
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
-        const trigger = dropdown.querySelector('.nav-tools-link');
-        if (trigger) {
-            trigger.addEventListener('click', (event) => {
-                // Previne que o link '#' recarregue a página
-                event.preventDefault();
-                // Alterna a classe 'active' no elemento <li> pai
-                dropdown.classList.toggle('active');
-            });
-        }
-    });
-
-    // Event listener global para fechar o dropdown se o usuário clicar fora dele
-    window.addEventListener('click', (event) => {
-        document.querySelectorAll('.dropdown.active').forEach(openDropdown => {
-            // Se o elemento clicado NÃO estiver dentro do dropdown aberto...
-            if (!openDropdown.contains(event.target)) {
-                // ...então remove a classe 'active' para fechá-lo.
-                openDropdown.classList.remove('active');
-            }
-        });
-    });
-}
-
-/**
- * Aplica as traduções a todos os elementos da página com o atributo 'data-translate'.
- * @param {string} lang - O código do idioma a ser aplicado (ex: 'pt', 'en').
- */
-function applyTranslations(lang) {
-    const t = translations[lang];
-    if (!t) return;
-
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (t[key]) element.textContent = t[key];
-    });
-
-    const titleKey = document.body.getAttribute('data-translate-title');
-    if (titleKey && t[titleKey]) {
-        document.title = t[titleKey];
-    }
-
-}
-
+      

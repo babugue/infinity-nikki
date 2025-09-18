@@ -31,11 +31,14 @@ async function initializeSite() {
  * Retorna uma Promise que é resolvida quando a injeção está completa.
  */
 function injectNavigation() {
-    return fetch('/nav.html')
+    const basePath = window.location.pathname.includes('/tools/') ? '../' : '';
+    
+    return fetch(`${basePath}nav.html`) // Caminho dinâmico
         .then(response => {
-            if (!response.ok) throw new Error('nav.html not found.');
-            return response.text();
+            // ...
         })
+        .catch(error => console.error('Erro ao buscar a navegação:', error));
+}
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
         })
@@ -129,4 +132,5 @@ function applyTranslations(lang) {
     if (titleKey && t[titleKey]) {
         document.title = t[titleKey];
     }
+
 }

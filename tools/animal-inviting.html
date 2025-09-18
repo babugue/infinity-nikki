@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Convite de Animais</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/animal-inviting.css"> 
+</head>
+<body data-translate-title="pageTitle">
+
+    <!-- A navegação será injetada aqui pelo global.js -->
+
+    <div class="container">
+        <div class="filter-container" id="filter-container">
+            <div class="filter-header">
+                <span id="search-icon" title="Pesquisar por nome">🔍</span>
+                <div id="search-wrapper">
+                    <span id="filter-title" data-translate="filterTitle">Filtrar Animais</span>
+                    <input type="text" id="search-input" class="search-input hidden" placeholder="">
+                </div>
+            </div>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label data-translate="filterColors">Cores:</label>
+                    <div class="filter-options">
+                        <label><input type="checkbox" value="white" class="color-filter"> <span data-translate="colorWhite">Branco</span></label>
+                        <label><input type="checkbox" value="brown" class="color-filter"> <span data-translate="colorBrown">Marrom</span></label>
+                        <label><input type="checkbox" value="blue" class="color-filter"> <span data-translate="colorBlue">Azul</span></label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label data-translate="filterSize">Tamanho:</label>
+                    <div class="filter-options">
+                        <label><input type="checkbox" value="small" class="size-filter"> <span data-translate="sizeSmall">Pequeno</span></label>
+                        <label><input type="checkbox" value="large" class="size-filter"> <span data-translate="sizeLarge">Grande</span></label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label data-translate="filterDrop">Drop por Hora:</label>
+                    <select id="drop-filter" class="drop-filter">
+                        <option value="" data-translate="dropAll">Todos</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="btn btn-primary" id="apply-filters-btn" data-translate="applyFilters">Aplicar Filtros</button>
+                <button class="btn btn-secondary" id="reset-filters-btn" data-translate="resetFilters">Limpar Filtros</button>
+            </div>
+        </div>
+        
+        <div class="animals-grid" id="animals-grid">
+            <!-- Os cards dos animais serão inseridos aqui -->
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <footer>
+        <p data-translate="footerText"></p>
+    </footer>
+
+    <!-- Carrega APENAS o script global. Ele se encarregará de carregar o resto. -->
+    <script src="../js/global.js" type="module"></script>
+</body>
+</html>

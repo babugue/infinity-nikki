@@ -1,0 +1,51 @@
+<nav class="main-nav">
+    <div class="nav-container">
+        <a href="/index.html" class="nav-logo">
+            <!-- Coloque o caminho para um ícone quadrado do seu logo aqui -->
+            <!-- <img src="/images/logo_icon.png" alt="Logo Icon" class="nav-logo-icon"> -->
+            <span>Infinity Nikki Hub</span>
+        </a>
+
+        <!-- Botão Hamburger para Mobile -->
+        <button class="hamburger" id="hamburger-button" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-links">
+                <li><a href="/index.html" data-translate="navHome">Início</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-tools-link" data-translate="navTools">Ferramentas <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/tools/animal-inviting.html" data-translate="toolAnimalTitle">Convite de Animais</a></li>
+                        <!-- NOVAS FERRAMENTAS SERÃO ADICIONADAS AQUI -->
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-controls">
+                <!-- Seletor de Idioma -->
+                <div class="language-selector">
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="pt">Português</option>
+                        <!-- Adicione outras línguas aqui -->
+                    </select>
+                </div>
+
+                <!-- Interruptor de Tema -->
+                <div class="theme-switcher">
+                    <label for="theme-toggle" class="theme-toggle-label">
+                        <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+                        <span class="slider">
+                            <span class="icon sun-icon">☀️</span>
+                            <span class="icon moon-icon">🌙</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
